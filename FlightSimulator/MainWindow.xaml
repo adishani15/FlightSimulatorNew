@@ -5,10 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator"
         xmlns:Controls ="clr-namespace:FlightSimulator.Views"
+
+       
       
         mc:Ignorable="d"
+        
+        
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Controls:Joystick Margin="10,0,0.333,-0.333"></Controls:Joystick>
+        <TabControl>
+            <TabItem Header="Manual">
+                <Controls:Joystick>
+                </Controls:Joystick>
+            </TabItem>
+            <TabItem Header="Auto">
+                <Controls:Auto>
+                    </Controls:Auto>
+
+            </TabItem>
+
+        </TabControl>
+
+
     </Grid>
 </Window>

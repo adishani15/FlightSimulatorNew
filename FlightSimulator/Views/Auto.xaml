@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="FlightSimulator.Views.Auto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Height="450" Width="800">
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <TextBox Name="MyTextBox" Margin="8,10,27,42.333" Grid.RowSpan="3"/>
+        <Button  Content="OK" Height="40" Width="120" Margin="240,111.667,440,73" Grid.Row="2" Background="Coral" FontSize="16" FontWeight="Bold" Grid.RowSpan="2"/>
+        <Button  Content="Clear" Height="40" Width="120"  Margin="409,111.667,271,73" Grid.Row="2" Background="Coral" FontSize="16" FontWeight="Bold" Grid.RowSpan="2"/>
+
+    </Grid>
+</UserControl>

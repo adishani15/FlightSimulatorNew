@@ -14,14 +14,17 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using  FlightSimulator.ViewModels;
 
 namespace FlightSimulator.Views
 {
+    
     /// <summary>
     /// Interaction logic for Joystick.xaml
     /// </summary>
     public partial class Joystick : UserControl
     {
+        private JoystickVM VM;
         /// <summary>Current Aileron</summary>
         public static readonly DependencyProperty AileronProperty =
             DependencyProperty.Register("Aileron", typeof(double), typeof(Joystick),null);
@@ -112,6 +115,7 @@ namespace FlightSimulator.Views
         public Joystick()
         {
             InitializeComponent();
+            this.VM = new JoystickVM();
 
             Knob.MouseLeftButtonDown += Knob_MouseLeftButtonDown;
             Knob.MouseLeftButtonUp += Knob_MouseLeftButtonUp;
@@ -162,6 +166,17 @@ namespace FlightSimulator.Views
 
         }
 
+
+        private void Rudder_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            VM.SaveSettings1(e);
+        }
+
+        private void Trottle_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
         private void Knob_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Knob.ReleaseMouseCapture();
@@ -174,5 +189,6 @@ namespace FlightSimulator.Views
             Released?.Invoke(this);
         }
 
+      
     }
 }
