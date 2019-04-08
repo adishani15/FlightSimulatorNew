@@ -11,15 +11,15 @@
         mc:Ignorable="d"
         
         
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="530" Width="800">
     <Grid>
-        <TabControl>
-            <TabItem Header="Manual">
-                <Controls:Joystick>
+        <TabControl Height="530" Width="400" HorizontalAlignment="Right">
+            <TabItem Header="Manual" >
+                <Controls:Joystick Margin="-200">
                 </Controls:Joystick>
             </TabItem>
-            <TabItem Header="Auto">
-                <Controls:Auto>
+            <TabItem Header="Auto Pilot">
+                <Controls:Auto Margin="-200">
                     </Controls:Auto>
 
             </TabItem>

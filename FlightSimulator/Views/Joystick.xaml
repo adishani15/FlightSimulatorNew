@@ -8,7 +8,7 @@
     <Grid>
 
         <Canvas  x:Name="Base" Margin="246,48,251.333,125.667">
-            <Ellipse HorizontalAlignment="Left" Height="313" VerticalAlignment="Top" Width="318" Canvas.Left="10" Canvas.Top="5">
+            <Ellipse HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="309" Canvas.Left="19" Canvas.Top="5">
                 <Ellipse.Fill>
                     <RadialGradientBrush>
                         <GradientStop Color="#FF2C2A2A" Offset="1" />
@@ -137,22 +137,22 @@
             </Canvas>
 
             <TextBlock Name="Ail" Height="39" Width="101" Text="Aileron" VerticalAlignment="Top"   
-        HorizontalAlignment="Left" Canvas.Left="125" Canvas.Top="-44" FontSize="28" FontStyle="Italic" FontStretch="Medium"/>
+        HorizontalAlignment="Left" Canvas.Left="125" Canvas.Top="-44" FontSize="22" FontStyle="Italic" FontStretch="Medium"/>
             <TextBlock Name="Rud" Height="39" Width="101" Text="Rudder" VerticalAlignment="Top"   
-        HorizontalAlignment="Left" Canvas.Left="125" Canvas.Top="373" FontSize="28" FontStyle="Italic" FontStretch="Medium"/>
+        HorizontalAlignment="Left" Canvas.Left="125" Canvas.Top="373" FontSize="22" FontStyle="Italic" FontStretch="Medium"/>
             <TextBlock Name="Ele" Height="40" Width="187" Text="Elevator" VerticalAlignment="Top"   
-        HorizontalAlignment="Left" Canvas.Left="408" Canvas.Top="214" FontSize="28" FontStyle="Italic" FontStretch="Medium" RenderTransformOrigin="0.5,0.5">
+        HorizontalAlignment="Left" Canvas.Left="240" Canvas.Top="191" FontSize="22" FontStyle="Italic" FontStretch="Medium" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="90.532"/>
+                        <RotateTransform Angle="90.0"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
             <TextBlock Name="thr" Height="39" Width="117" Text="Throttle" VerticalAlignment="Top"   
-        HorizontalAlignment="Left" Canvas.Left="-263" Canvas.Top="172" FontSize="28" FontStyle="Italic" FontStretch="Medium" RenderTransformOrigin="0.5,0.5" >
+        HorizontalAlignment="Left" Canvas.Left="-93" Canvas.Top="151" FontSize="22" FontStyle="Italic" FontStretch="Medium" RenderTransformOrigin="0.5,0.5" >
 
                 <TextBlock.RenderTransform>
                     <TransformGroup>
@@ -163,10 +163,10 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Slider Name="Rudder" Maximum="1" Minimum="-1" ValueChanged="Rudder_ValueChanged"  TickPlacement="BottomRight" TickFrequency="0.1" Background="White" Height="45" Canvas.Left="10" Width="300" Canvas.Top="323" />
-            <Label Name="lblTest" Content="{Binding ElementName=Rudder, Path=Value}" RenderTransformOrigin="-0.8,3.244" Canvas.Left="358" Canvas.Top="318" Height="28" Width="23" FontSize="16" />
-            <Label Name="try" Content="{Binding ElementName=Trottle, Path=Value}" Canvas.Left="-93" Canvas.Top="-18" FontSize="16"></Label>
-            <Slider Name="Trottle" Maximum="1" Minimum="-1" TickPlacement="BottomRight" TickFrequency="0.1" Background="White" Height="36" Canvas.Left="-293" Width="306" Canvas.Top="145" Orientation="Horizontal" RenderTransformOrigin="0.5,0.5" >
+            <Slider Name="Rudder" Maximum="1" Minimum="-1" ValueChanged="Rudder_ValueChanged"  TickPlacement="BottomRight" TickFrequency="0.1" Background="White" Height="45" Canvas.Left="23" Width="297" Canvas.Top="323" />
+            <Label Name="lblTest" Content="{Binding ElementName=Rudder, Path=Value}" RenderTransformOrigin="-0.8,3.244" Height="28" Width="23" FontSize="16" Canvas.Left="305" Canvas.Top="292" />
+            <Label Name="try" Content="{Binding ElementName=Trottle, Path=Value}" FontSize="16" Canvas.Left="11" Canvas.Top="10" ></Label>
+            <Slider Name="Trottle" Maximum="1" Minimum="-1" TickPlacement="BottomRight" TickFrequency="0.1" Background="White" Height="36" Canvas.Left="-157" Width="306" Canvas.Top="151" Orientation="Horizontal" RenderTransformOrigin="0.5,0.5" >
 
                 <Slider.RenderTransform>
                     <TransformGroup>
