@@ -20,12 +20,17 @@
             </TabItem>
             <TabItem Header="Auto Pilot">
                 <Controls:Auto Margin="-200">
-                    </Controls:Auto>
+                </Controls:Auto>
 
             </TabItem>
 
         </TabControl>
+        <TabControl Height="530" Width="400" HorizontalAlignment="Left">
+            <Controls:MyFlightBorder Margin="-200">
+            </Controls:MyFlightBorder>
 
+
+        </TabControl>
 
     </Grid>
 </Window>
