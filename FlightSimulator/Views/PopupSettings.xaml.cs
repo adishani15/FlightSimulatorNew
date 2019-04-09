@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for MyFlightBorder.xaml
+    /// Interaction logic for PopupSettings.xaml
     /// </summary>
-    public partial class MyFlightBorder : UserControl
+    public partial class PopupSettings : Window
     {
-        public MyFlightBorder()
+        public PopupSettings()
         {
             InitializeComponent();
         }
-
     }
 }

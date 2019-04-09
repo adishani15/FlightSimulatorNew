@@ -3,11 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm ="clr-namespace:FlightSimulator.ViewModels"
         xmlns:local="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
       Height="450" Width="800">
+
+    <UserControl.Resources>
+        <vm:PopupVM x:Key="vm2"/>
+    </UserControl.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
+         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -15,9 +20,12 @@
             <RowDefinition Height= "Auto" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Name="Connect" Content="Connect" FontWeight="ExtraBold" Width="100" Margin="7" HorizontalAlignment="Right"
-                Grid.Row="0" Grid.Column="0"/>
-        <Button Name="Settings" Content="Settings" FontWeight="ExtraBold" Width="100" Margin="7" HorizontalAlignment="Left"
+        <Button Name="Connect" Content="Connect" 
+                FontWeight="ExtraBold" Width="100" Margin="7" HorizontalAlignment="Right"
+                Grid.Row="0" Grid.Column="0" />
+        <Button Name="Settings" Content="Settings"
+                 Command="{Binding Path=SettingsCommand,Source={StaticResource vm2}}"
+                FontWeight="ExtraBold" Width="100" Margin="7" HorizontalAlignment="Left"
                 Grid.Row="0" Grid.Column="1"/>
         <local:FlightBoard Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1"></local:FlightBoard>
     </Grid>
