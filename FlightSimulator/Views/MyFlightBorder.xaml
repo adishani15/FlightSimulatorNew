@@ -6,11 +6,8 @@
         xmlns:vm ="clr-namespace:FlightSimulator.ViewModels"
         xmlns:local="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-      Height="450" Width="800">
+      Height="450" Width="470">
 
-    <UserControl.Resources>
-        <vm:PopupVM x:Key="vm2"/>
-    </UserControl.Resources>
     <Grid>
          <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -24,7 +21,7 @@
                 FontWeight="ExtraBold" Width="100" Margin="7" HorizontalAlignment="Right"
                 Grid.Row="0" Grid.Column="0" />
         <Button Name="Settings" Content="Settings"
-                 Command="{Binding Path=SettingsCommand,Source={StaticResource vm2}}"
+                 Command="{Binding SettingsCommand}"
                 FontWeight="ExtraBold" Width="100" Margin="7" HorizontalAlignment="Left"
                 Grid.Row="0" Grid.Column="1"/>
         <local:FlightBoard Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1"></local:FlightBoard>

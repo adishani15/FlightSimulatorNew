@@ -9,29 +9,25 @@ using FlightSimulator.Views;
 namespace FlightSimulator.ViewModels
 {
     class PopupVM
-    {
-            private ICommand _settingsCommand;
-            public ICommand SettingsCommand
+    { 
+        private ICommand _settingsCommand;
+        public ICommand SettingsCommand
+        {
+            get
             {
-                get
-                {
-                    Console.WriteLine("adi");
-                    return _settingsCommand ?? (_settingsCommand =
-                    new CommandHandler(() => OnClick()));
-                }
-                set
-                {
-                    Console.WriteLine("adi");
-                }
+                return _settingsCommand ?? (_settingsCommand =
+                new CommandHandler(() => OnClick()));
             }
-            private void OnClick()
+            set
             {
-            PopupSettings p = new PopupSettings();
-            p.ShowDialog();
-                /*m_flightManager.Connect();
-                IsDisconnected = false; // Setting that the server is
-                connected*/
+
             }
         }
+        private void OnClick()
+        {
+            PopupSettings p = new PopupSettings();
+                p.ShowDialog();
+        }
     }
+}
 

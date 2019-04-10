@@ -12,21 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using FlightSimulator.ViewModels.Windows;
-using FlightSimulator.Model;
 
 namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for PopupSettings.xaml
+    /// Interaction logic for ControlPanel.xaml
     /// </summary>
-    public partial class PopupSettings : Window
+    public partial class ControlPanel : UserControl
     {
-        public PopupSettings()
+        public ControlPanel()
         {
             InitializeComponent();
-            this.DataContext = new SettingsWindowViewModel(new ApplicationSettingsModel());
-           
         }
     }
 }
