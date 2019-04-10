@@ -8,9 +8,7 @@ using System.Threading;
 
 
 using System.Net;
-
-
-
+using System.IO;
 
 namespace FlightSimulator
 {
@@ -19,6 +17,7 @@ namespace FlightSimulator
         public Dictionary<string, double> pathRead = new Dictionary<string, double>();
         public Dictionary<string, string> SimulatorPath = new Dictionary<string, string>();
         NetworkStream ns;
+        TcpClient client;
 
         public Command()
         {
@@ -28,11 +27,21 @@ namespace FlightSimulator
         {
 
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5402);
-            TcpClient client = new TcpClient();
+            this.client = new TcpClient();
             client.Connect(ep);
             Console.WriteLine("You are connected");
             this.ns = client.GetStream();
-        }
+
+
+            
+            {
+
+
+            }
+            }
+        
+        
+
 
         private void  SetTheMap()
         {
@@ -102,12 +111,26 @@ namespace FlightSimulator
 
         public void setInfo(List<string> path)
         {
+            /*using (NetworkStream stream = new NetworkStream(client.Client, false))
+            using (BinaryWriter writer = new BinaryWriter(stream))
+            {
+                string goTo = "set ";
+                goTo += this.SimulatorPath[path[0]];
+                goTo += " ";
+                goTo += path[1];
+                goTo += "\r\n";
+
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(goTo);
+                Console.WriteLine(goTo);
+                writer.Write(data);
+                writer.Flush();
+            }*/
 
             string goTo = "set ";
             goTo += this.SimulatorPath[path[0]];
             goTo += " ";
-           goTo += path[1];
-
+            goTo += path[1];
+            goTo += "\r\n";
             Console.WriteLine(goTo);
             byte[] byteTime = System.Text.Encoding.ASCII.GetBytes(goTo.ToString());
             this.ns.Write(byteTime, 0, byteTime.Length);

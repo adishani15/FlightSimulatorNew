@@ -10,6 +10,7 @@ namespace FlightSimulator.ViewModels
     public class FlightBoardViewModel : BaseNotify
     {
 
+
         public double Lon
         {
             get;

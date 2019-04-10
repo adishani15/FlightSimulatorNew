@@ -16,6 +16,11 @@ namespace FlightSimulator.ViewModels
         private string throttle;
         private string aileron;
 
+        public JoystickVM()
+        {
+            this.command = new Command();
+        }
+
 
 
         public string Aileron
