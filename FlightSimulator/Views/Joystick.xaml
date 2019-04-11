@@ -163,10 +163,10 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Slider Name="Rudder" Maximum="1" Minimum="-1" ValueChanged="Rudder_ValueChanged"  TickPlacement="BottomRight" TickFrequency="0.1" Background="White" Height="45" Canvas.Left="23" Width="297" Canvas.Top="323" />
-            <Label Name="lblTest" Content="{Binding ElementName=Rudder, Path=Value}" RenderTransformOrigin="-0.8,3.244" Height="28" Width="23" FontSize="16" Canvas.Left="305" Canvas.Top="292" />
-            <Label Name="try" Content="{Binding ElementName=Trottle, Path=Value}" FontSize="16" Canvas.Left="11" Canvas.Top="10" ></Label>
-            <Slider Name="Trottle" Maximum="1" Minimum="-1" TickPlacement="BottomRight" TickFrequency="0.1" Background="White" Height="36" Canvas.Left="-157" Width="306" Canvas.Top="151" Orientation="Horizontal" RenderTransformOrigin="0.5,0.5" >
+            <Slider Name="Rudder" Maximum="1" Minimum="-1" Value="{Binding Rudder,Mode=OneWayToSource}" TickPlacement="BottomRight" TickFrequency="0.1" Background="White" Height="45" Canvas.Left="23" Width="297" Canvas.Top="323" />
+            <Label Name="lblTest" Content="{Binding ElementName=Rudder, Path=Value}" RenderTransformOrigin="-0.8,3.244" Height="33" Width="32" FontSize="10" Canvas.Left="262" Canvas.Top="290" />
+            <Label Name="try" Content="{Binding ElementName=Trottle, Path=Value}" FontSize="10" Canvas.Left="10" RenderTransformOrigin="0.022,0.214" Height="24" Width="33" />
+            <Slider Name="Trottle" Maximum="1" Minimum="-1" TickPlacement="BottomRight" Value="{Binding Throttle,Mode=OneWayToSource}" TickFrequency="0.1" Background="White" Height="36" Canvas.Left="-157" Width="306" Canvas.Top="151" Orientation="Horizontal" RenderTransformOrigin="0.5,0.5" >
 
                 <Slider.RenderTransform>
                     <TransformGroup>

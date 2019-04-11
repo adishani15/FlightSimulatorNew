@@ -115,7 +115,7 @@ namespace FlightSimulator.Views
         public Joystick()
         {
             InitializeComponent();
-            this.VM = new JoystickVM();
+            this.DataContext = new JoystickVM();
 
             Knob.MouseLeftButtonDown += Knob_MouseLeftButtonDown;
             Knob.MouseLeftButtonUp += Knob_MouseLeftButtonUp;
@@ -164,18 +164,12 @@ namespace FlightSimulator.Views
             _prevAileron = Aileron;
             _prevElevator = Elevator;
 
-        }
-
-
-        private void Rudder_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            VM.SaveSettings1(e);
-        }
-
-        private void Trottle_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
+            Console.WriteLine(Aileron);
+            Console.WriteLine(Elevator);
+            Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 
         }
+
 
         private void Knob_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

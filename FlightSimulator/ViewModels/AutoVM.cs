@@ -14,13 +14,47 @@ namespace FlightSimulator.ViewModels
         private Command com;
         private ICommand _connectCommand;
         private ICommand _clearCommand;
+        private bool IsConnect;
+        private int count = 0;
+        private string data = "";
        
         
-        private String commantFromUser;
+        private String commantFromUser = "";
         public AutoVM()
         {
+            this.com = new Command();
+            this.IsConnect = false;
+        }
+
+        private String color;
+        public String ColorCange
+        {
+            get
+            {
+                if (count == 0)
+                {
+                    color = "White";
+                    count++;
+                }
+                else if (commantFromUser == "")
+                {
+                    color = "White";
+                    count++;
+
+                }
+                else
+                {
+                    color = "Pink";
+                }
+                return color;
+            }
             
         }
+
+
+
+
+
 
         public ICommand ClearCommand
 
@@ -46,14 +80,20 @@ namespace FlightSimulator.ViewModels
         public String CommentFromUser
         {
             get
-            {
+            {   if(commantFromUser!= "" )
+                {
+                    NotifyPropertyChanged("ColorCange");
+                }
                 return commantFromUser;
+                
             }
             set
             {
-                this.Parser(value);
+                
+                this.data = value;
                 commantFromUser = value;
                 NotifyPropertyChanged("CommentFromUser");
+                NotifyPropertyChanged("ColorCange");
 
             }
         }
@@ -61,10 +101,18 @@ namespace FlightSimulator.ViewModels
        
 
         
-        private void OnClick1()
+        private void OkClick()
         {
-            
 
+            this.Parser(this.data);
+             if(!this.IsConnect){
+                this.com.connectServer();
+                this.IsConnect = true;
+            }
+            this.com.setFromAuto(this.myCommands);
+
+
+        
         }
 
         public ICommand ConnectCommand
@@ -72,7 +120,7 @@ namespace FlightSimulator.ViewModels
             get
             {
                 return _connectCommand ?? (_connectCommand =
-                new CommandHandler(() => OnClick1()));
+                new CommandHandler(() => OkClick()));
 
             }
             

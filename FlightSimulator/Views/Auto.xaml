@@ -22,13 +22,13 @@
         </Grid.RowDefinitions>
 
 
-        <TextBox Name="MyTextBox" Text="{Binding CommentFromUser, NotifyOnSourceUpdated=True}" Grid.RowSpan="3" Margin="209,23,213,24.333"
+        <TextBox Name="MyTextBox" Text="{Binding CommentFromUser, UpdateSourceTrigger=PropertyChanged}" Background="{Binding ColorCange,UpdateSourceTrigger=PropertyChanged}" Grid.RowSpan="3" Margin="209,23,213,24.333"
                  TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Visible"
                 AcceptsReturn="True">
   </TextBox>
-        <Button  Content="OK"  Command="{Binding Path=ConnectCommand, UpdateSourceTrigger=PropertyChanged}"  Height="40" Width="120" Background="Coral" FontSize="16" FontWeight="Bold" Margin="269,111.667,411,73" Grid.Row="2" Grid.RowSpan="2" />
-        <Button  Content="Clear" Command="{Binding  Path=ClearCommand, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="120"  Margin="419,111.667,261,73" Grid.Row="2" Background="Coral" FontSize="16" FontWeight="Bold" Grid.RowSpan="2" />
+        <Button  Content="OK"  Command="{Binding Path=ConnectCommand, UpdateSourceTrigger=PropertyChanged}"  Height="40" Width="120" Background="LightGoldenrodYellow" FontSize="16" FontWeight="Bold" Margin="269,111.667,411,73" Grid.Row="2" Grid.RowSpan="2" />
+        <Button  Content="Clear" Command="{Binding  Path=ClearCommand, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="120"  Margin="419,111.667,261,73" Grid.Row="2" Background="LightGoldenrodYellow" FontSize="16" FontWeight="Bold" Grid.RowSpan="2" />
 
 
       

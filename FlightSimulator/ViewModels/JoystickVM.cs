@@ -11,10 +11,7 @@ namespace FlightSimulator.ViewModels
     {
 
         private Command command;
-        private string elevator;
-        private string rudder;
-        private string throttle;
-        private string aileron;
+       
 
         public JoystickVM()
         {
@@ -28,8 +25,7 @@ namespace FlightSimulator.ViewModels
             
             set
             {
-                this.aileron = value;
-                //this.command.setInfo(this.aileron);
+                
             }
         }
         public string Elevator
@@ -37,8 +33,7 @@ namespace FlightSimulator.ViewModels
            
             set
             {
-                this.elevator = value;
-                //this.command.setInfo(this.elevator);
+                
             }
         }
         public string Rudder
@@ -51,10 +46,7 @@ namespace FlightSimulator.ViewModels
                 List<String> path = new List<string> ();
                 path.Add("rudder");
                 path.Add(value);
-                Console.WriteLine("im rudder");
-                this.rudder = value;
-                Console.WriteLine(value);
-                this.command.setInfo(path);
+                //this.command.setInfo(path);
                 
             }
         }
@@ -62,20 +54,15 @@ namespace FlightSimulator.ViewModels
         {
            
             set {
-                
-                // this.throttle = value;
-                //this.command.setInfo(this.throttle);
+                List<String> path = new List<string>();
+                path.Add("throttle");
+                path.Add(value);
+                //this.command.setInfo(path);
+
             }
         }
 
-        public void SaveSettings1(RoutedPropertyChangedEventArgs<double> e)
-        {
-            this.command = new Command();
-            this.command.connectServer();
-            string a = e.NewValue.ToString();
-            this.Rudder = a;
-           
-        }
+        
 
       
     }

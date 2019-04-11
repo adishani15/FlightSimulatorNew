@@ -137,6 +137,48 @@ namespace FlightSimulator
 
         }
 
+        public void setFromAuto(List<List<string>> s)
+        {
+                if (s.Count != 0)
+                {
+                    using (NetworkStream stream = new NetworkStream(this.client.Client, false))
+                    using (BinaryWriter writer = new BinaryWriter(stream))
+                    {
+                        while (s.Count != 0)
+                        {
+                        List<string> temp = s[0];
+                        temp.Add("\r\n");
+                        s.RemoveAt(0);
+                        string path =this.Concat(temp);
+                        
+                        byte[] data = System.Text.Encoding.ASCII.GetBytes(path);
+                        Console.WriteLine(path);
+                        writer.Write(data);
+                        writer.Flush();
+                        Thread.Sleep(2000);
+                        }
+                    }
+                }
+               
+            }
+
+
+        private string Concat(List<String> thePath)
+        {
+            string r = "";
+            for (int i = 0; i < thePath.Count; i++)
+            {
+                r += thePath[i];
+            }
+            return r;
+        }
+
     }
-}
+
+    }
+
+
+
+
+    
 
