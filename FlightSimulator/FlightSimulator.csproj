@@ -96,13 +96,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command.cs" />
-    <Compile Include="info.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ApplicationSettingsModel.cs" />
     <Compile Include="Model\CommandHandler.cs" />
     <Compile Include="Model\EventArgs\VirtualJoystickEventArgs.cs" />
+    <Compile Include="Model\Info.cs" />
     <Compile Include="Model\Interface\ISettingsModel.cs" />
     <Compile Include="ViewModels\AutoVM.cs" />
     <Compile Include="ViewModels\BaseNotify.cs" />

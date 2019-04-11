@@ -15,7 +15,7 @@ namespace FlightSimulator.ViewModels
 
         public JoystickVM()
         {
-            this.command = new Command();
+            //this.command = new Command();
         }
 
 
@@ -46,7 +46,7 @@ namespace FlightSimulator.ViewModels
                 List<String> path = new List<string> ();
                 path.Add("rudder");
                 path.Add(value);
-                //this.command.setInfo(path);
+               // this.command.setInfo(path);
                 
             }
         }

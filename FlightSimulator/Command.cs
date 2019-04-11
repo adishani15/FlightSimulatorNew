@@ -176,9 +176,3 @@ namespace FlightSimulator
     }
 
     }
-
-
-
-
-    
-

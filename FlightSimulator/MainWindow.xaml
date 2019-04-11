@@ -5,21 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator"
         xmlns:Controls ="clr-namespace:FlightSimulator.Views"
-        MinWidth="1000" MinHeight="520"
+        
         mc:Ignorable="d"
         
         
         Title="MainWindow" Height="540" Width="1100">
+    <Viewbox>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Controls:MyFlightBorder Grid.Column="0">
-            </Controls:MyFlightBorder>
+        <Controls:MyFlightBorder Grid.Column="0" Margin="10">
+        </Controls:MyFlightBorder>
         <Controls:ControlPanel Grid.Column="1">
         </Controls:ControlPanel>
 
-
     </Grid>
+    </Viewbox>
 </Window>
