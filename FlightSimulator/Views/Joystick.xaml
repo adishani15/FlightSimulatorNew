@@ -8,6 +8,7 @@
     <Grid>
 
         <Canvas  x:Name="Base" Margin="246,48,251.333,125.667">
+            
             <Ellipse HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="309" Canvas.Left="19" Canvas.Top="5">
                 <Ellipse.Fill>
                     <RadialGradientBrush>
@@ -136,11 +137,11 @@
                 </Canvas.Resources>
             </Canvas>
 
-            <TextBlock Name="Ail" Height="39" Width="101" Text="Aileron" VerticalAlignment="Top"   
+            <TextBlock Name="Ail" Height="39" Width="110" Text="←Aileron→" VerticalAlignment="Top"   
         HorizontalAlignment="Left" Canvas.Left="125" Canvas.Top="-44" FontSize="22" FontStyle="Italic" FontStretch="Medium"/>
-            <TextBlock Name="Rud" Height="39" Width="101" Text="Rudder" VerticalAlignment="Top"   
+            <TextBlock Name="Rud" Height="39" Width="110" Text="←Rudder→" VerticalAlignment="Top"   
         HorizontalAlignment="Left" Canvas.Left="125" Canvas.Top="373" FontSize="22" FontStyle="Italic" FontStretch="Medium"/>
-            <TextBlock Name="Ele" Height="40" Width="187" Text="Elevator" VerticalAlignment="Top"   
+            <TextBlock Name="Ele" Height="40" Width="187" Text="←Elevator→" VerticalAlignment="Top"   
         HorizontalAlignment="Left" Canvas.Left="240" Canvas.Top="191" FontSize="22" FontStyle="Italic" FontStretch="Medium" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
@@ -151,7 +152,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock Name="thr" Height="39" Width="117" Text="Throttle" VerticalAlignment="Top"   
+            <TextBlock Name="thr" Height="39" Width="117" Text="←Throttle→" VerticalAlignment="Top"   
         HorizontalAlignment="Left" Canvas.Left="-93" Canvas.Top="151" FontSize="22" FontStyle="Italic" FontStretch="Medium" RenderTransformOrigin="0.5,0.5" >
 
                 <TextBlock.RenderTransform>
