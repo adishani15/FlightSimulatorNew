@@ -62,7 +62,6 @@ namespace FlightSimulator.Model
 
             return new string(buffer);
         }
-
         public void openServer()
         {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(Properties.Settings.Default.FlightServerIP),
