@@ -22,7 +22,7 @@ namespace FlightSimulator.ViewModels
         private String commantFromUser = "";
         public AutoVM()
         {
-            this.com = new Command();
+            //this.com = new Command();
             this.IsConnect = false;
         }
 

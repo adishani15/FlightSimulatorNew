@@ -9,12 +9,13 @@ using FlightSimulator.Views;
 namespace FlightSimulator.ViewModels
 {
     class PopupVM
-    { 
+    {
         private ICommand _settingsCommand;
         public ICommand SettingsCommand
         {
             get
             {
+                Console.WriteLine("_----------------------");
                 return _settingsCommand ?? (_settingsCommand =
                 new CommandHandler(() => OnClick()));
             }
@@ -25,9 +26,29 @@ namespace FlightSimulator.ViewModels
         }
         private void OnClick()
         {
+            Console.WriteLine("*************************************");
             PopupSettings p = new PopupSettings();
-                p.ShowDialog();
+             p.ShowDialog();
         }
+        private ICommand _listenCommand;
+        public ICommand ListenCommand
+        {
+            get
+            {
+                return _listenCommand ?? (_listenCommand =
+                new CommandHandler(() => ToConnect()));
+            }
+            set
+            {
+
+            }
+        }
+        private void ToConnect()
+        {
+            Console.WriteLine("WoW!!!");
+            Info myInfo = new Info();
+    }
     }
 }
+
 
