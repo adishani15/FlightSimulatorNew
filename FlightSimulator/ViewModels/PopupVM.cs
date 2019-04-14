@@ -45,8 +45,9 @@ namespace FlightSimulator.ViewModels
         }
         private void ToConnect()
         {
-            Info myInfo = new Info();
-    }
+            SingeltonInfo.Instance.openServer();
+            SingeltonCommand.Instance.connectServer();
+        }
     }
 }
 

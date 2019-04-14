@@ -24,7 +24,7 @@ namespace FlightSimulator.Model
             shouldStop = false;
             lon = 0.0f;
             lat = 0.0f;
-            openServer();
+            
         }
 
         public float Lon
@@ -67,16 +67,19 @@ namespace FlightSimulator.Model
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(Properties.Settings.Default.FlightServerIP),
                                                   Properties.Settings.Default.FlightInfoPort);
             TcpListener server = new TcpListener(ep);
-            server.Start();
+            
 
-            Thread thread = new Thread(() => listenFlight(server));
+            server.Start();
+            TcpClient clientSocket = server.AcceptTcpClient();
+
+            Thread thread = new Thread(() => listenFlight(server,clientSocket));
             thread.Start();
         }
 
-        private void listenFlight(TcpListener server)
+        private void listenFlight(TcpListener server, TcpClient clientSocket)
         {
            
-            TcpClient clientSocket = server.AcceptTcpClient();
+            /*TcpClient clientSocket = server.AcceptTcpClient();*/
             NetworkStream stream = clientSocket.GetStream();
             BinaryReader reader = new BinaryReader(stream);
             DateTime start = DateTime.UtcNow;
