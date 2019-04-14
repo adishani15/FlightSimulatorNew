@@ -24,9 +24,7 @@ namespace FlightSimulator.Model
             shouldStop = false;
             lon = 0.0f;
             lat = 0.0f;
-
-            Thread thread = new Thread(new ThreadStart(startServer));
-            thread.Start();
+            openServer();
         }
 
         public float Lon
@@ -48,7 +46,7 @@ namespace FlightSimulator.Model
             }
         }
 
-        private static string readUntilNewLine(BinaryReader reader)
+        private static string readLine(BinaryReader reader)
         {
             char[] buffer = new char[1024];
             int i = 0;
@@ -65,34 +63,40 @@ namespace FlightSimulator.Model
             return new string(buffer);
         }
 
-
-        private void startServer()
+        public void openServer()
         {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(Properties.Settings.Default.FlightServerIP),
-                                                    Properties.Settings.Default.FlightInfoPort);
+                                                  Properties.Settings.Default.FlightInfoPort);
             TcpListener server = new TcpListener(ep);
             server.Start();
-        
+
+            Thread thread = new Thread(() => listenFlight(server));
+            thread.Start();
+        }
+
+        private void listenFlight(TcpListener server)
+        {
+           
             TcpClient clientSocket = server.AcceptTcpClient();
             NetworkStream stream = clientSocket.GetStream();
             BinaryReader reader = new BinaryReader(stream);
             DateTime start = DateTime.UtcNow;
 
             string inputLine;
-            string[] splitted;
+            string[] splitStr;
 
             while (!shouldStop)
             {
-                inputLine = readUntilNewLine(reader);
+                inputLine = readLine(reader);
 
                 if (Convert.ToInt32((DateTime.UtcNow - start).TotalSeconds) < 90)
                 {
                     continue;
                 }
 
-                splitted = inputLine.Split(',');
-                Lon = float.Parse(splitted[0]);
-                Lat = float.Parse(splitted[1]);
+                splitStr = inputLine.Split(',');
+                Lon = float.Parse(splitStr[0]);
+                Lat = float.Parse(splitStr[1]);
                 Console.WriteLine("Lon {0} Lat {1}", Lon, Lat);
                 //Thread.Sleep(250);
             }

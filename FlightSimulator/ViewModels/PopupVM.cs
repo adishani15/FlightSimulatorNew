@@ -45,7 +45,6 @@ namespace FlightSimulator.ViewModels
         }
         private void ToConnect()
         {
-            Console.WriteLine("WoW!!!");
             Info myInfo = new Info();
     }
     }
