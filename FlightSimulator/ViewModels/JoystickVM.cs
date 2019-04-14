@@ -10,16 +10,7 @@ namespace FlightSimulator.ViewModels
     public class JoystickVM
     {
 
-        private Command command;
-       
-
-        public JoystickVM()
-        {
-            //this.command = new Command();
-        }
-
-
-
+      
         public string Aileron
         {
             
@@ -46,7 +37,12 @@ namespace FlightSimulator.ViewModels
                 List<String> path = new List<string> ();
                 path.Add("rudder");
                 path.Add(value);
-               // this.command.setInfo(path);
+                if (SingeltonCommand.Instance.GetDidConnect())
+                {
+                    SingeltonCommand.Instance.setInfo(path);
+                }
+               
+               
                 
             }
         }
@@ -57,7 +53,10 @@ namespace FlightSimulator.ViewModels
                 List<String> path = new List<string>();
                 path.Add("throttle");
                 path.Add(value);
-                //this.command.setInfo(path);
+                if (SingeltonCommand.Instance.GetDidConnect())
+                {
+                    SingeltonCommand.Instance.setInfo(path);
+                }
 
             }
         }

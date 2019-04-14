@@ -18,10 +18,12 @@ namespace FlightSimulator
         public Dictionary<string, string> SimulatorPath = new Dictionary<string, string>();
         NetworkStream ns;
         TcpClient client;
+        private bool didConnect;
 
         public Command()
         {
             this.SetTheMap();
+            didConnect = false;
         }
         public void connectServer()
         {
@@ -32,14 +34,9 @@ namespace FlightSimulator
             client.Connect(ep);
             Console.WriteLine("You are connected");
             this.ns = client.GetStream();
+            this.didConnect = true;
 
-
-            
-            {
-
-
-            }
-            }
+        }
         
         
 
@@ -173,6 +170,11 @@ namespace FlightSimulator
             }
             return r;
         }
+
+        public bool GetDidConnect()
+        {
+            return this.didConnect;
+        } 
 
     }
 

@@ -104,6 +104,8 @@
     <Compile Include="Model\EventArgs\VirtualJoystickEventArgs.cs" />
     <Compile Include="Model\Info.cs" />
     <Compile Include="Model\Interface\ISettingsModel.cs" />
+    <Compile Include="SingeltonCommand.cs" />
+    <Compile Include="SingeltonInfo.cs" />
     <Compile Include="ViewModels\AutoVM.cs" />
     <Compile Include="ViewModels\BaseNotify.cs" />
     <Compile Include="ViewModels\FlightBoardViewModel.cs" />

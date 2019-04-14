@@ -11,20 +11,16 @@ namespace FlightSimulator.ViewModels
     class AutoVM:BaseNotify
     {
         private List<List<string>> myCommands = new List<List<string>>();
-        private Command com;
+        
         private ICommand _connectCommand;
         private ICommand _clearCommand;
-        private bool IsConnect;
+        
         private int count = 0;
         private string data = "";
        
         
         private String commantFromUser = "";
-        public AutoVM()
-        {
-            //this.com = new Command();
-            this.IsConnect = false;
-        }
+       
 
         private String color;
         public String ColorCange
@@ -65,7 +61,6 @@ namespace FlightSimulator.ViewModels
                 return _clearCommand ?? (_clearCommand =
                 new CommandHandler(() => OnClick()));
                 
-
             }
             
         
@@ -105,11 +100,11 @@ namespace FlightSimulator.ViewModels
         {
 
             this.Parser(this.data);
-             if(!this.IsConnect){
-                this.com.connectServer();
-                this.IsConnect = true;
+             if(SingeltonCommand.Instance.GetDidConnect()){
+                SingeltonCommand.Instance.setFromAuto(this.myCommands);
             }
-            this.com.setFromAuto(this.myCommands);
+            
+             
 
 
         

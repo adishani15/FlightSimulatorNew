@@ -12,7 +12,8 @@
         Title="MainWindow" Height="540" Width="1100">
     <Viewbox>
     <Grid>
-        <Grid.ColumnDefinitions>
+            
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
