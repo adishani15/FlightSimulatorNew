@@ -25,8 +25,9 @@ namespace FlightSimulator
         }
         public void connectServer()
         {
-
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5402);
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(Properties.Settings.Default.FlightServerIP),
+                                                               Properties.Settings.Default.FlightCommandPort);
+            TcpListener server = new TcpListener(ep);
             this.client = new TcpClient();
             client.Connect(ep);
             Console.WriteLine("You are connected");
