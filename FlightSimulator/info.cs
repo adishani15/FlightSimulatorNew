@@ -20,13 +20,13 @@ public class info
 
         public void connectClient()
         {
-            /*bool done = false;
+            bool done = false;
 
             TcpListener listener = new TcpListener(portNum);
 
             listener.Start();
 
-            while (!done)
+            /*while (!done)
             {
                 Console.Write("Waiting for connection...");
                 TcpClient client = listener.AcceptTcpClient();
