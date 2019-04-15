@@ -9,6 +9,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using FlightSimulator.ViewModels;
 
 
 namespace FlightSimulator.Model
@@ -33,6 +34,7 @@ namespace FlightSimulator.Model
             set
             {
                 lon = value;
+                NotifyPropertyChanged("Lon");
             }
         }
 
@@ -50,13 +52,13 @@ namespace FlightSimulator.Model
         {
             char[] buffer = new char[1024];
             int i = 0;
-            char last = '\0';
+            char end = '\0';
 
-            while (i < 1024 && last != '\n')
+            while (i < 1024 && end != '\n')
             {
                 char input = reader.ReadChar();
                 buffer[i] = input;
-                last = buffer[i];
+                end = buffer[i];
                 i++;
             }
 
@@ -78,8 +80,6 @@ namespace FlightSimulator.Model
 
         private void listenFlight(TcpListener server, TcpClient clientSocket)
         {
-           
-            /*TcpClient clientSocket = server.AcceptTcpClient();*/
             NetworkStream stream = clientSocket.GetStream();
             BinaryReader reader = new BinaryReader(stream);
             DateTime start = DateTime.UtcNow;
@@ -107,37 +107,6 @@ namespace FlightSimulator.Model
             server.Stop();
 
         }
-
-        //private TcpClient client1;
-        //private const int portNum = 5400;
-        //private NetworkStream clientStream;
-        //private IPAddress myIP = new IPAddress(127,0,0,1);
-
-        //public void connectClient()
-        //{
-        //    bool done = false;
-
-        //    TcpListener listener = new TcpListener(,portNum);
-
-        //    listener.Start();
-
-        //    while (!done)
-        //    {
-        //        Console.Write("Waiting for connection...");
-        //        TcpClient client = listener.AcceptTcpClient();
-        //        this.client1 = client;
-
-        //        Console.WriteLine("Connection accepted.");
-        //        NetworkStream ns = client.GetStream();
-        //        this.clientStream = ns;
-        //    }
-
-        //    listener.Stop();
-
-        //    return;
-        //}
-
-
     }
 
 }

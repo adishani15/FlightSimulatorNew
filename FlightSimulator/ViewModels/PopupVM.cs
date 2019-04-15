@@ -26,7 +26,6 @@ namespace FlightSimulator.ViewModels
         }
         private void OnClick()
         {
-            Console.WriteLine("*************************************");
             PopupSettings p = new PopupSettings();
              p.ShowDialog();
         }
@@ -49,6 +48,7 @@ namespace FlightSimulator.ViewModels
             SingeltonCommand.Instance.connectServer();
         }
     }
+
 }
 
 
