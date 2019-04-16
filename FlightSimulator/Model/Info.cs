@@ -14,7 +14,7 @@ using FlightSimulator.ViewModels;
 
 namespace FlightSimulator.Model
 {
-    public class Info : BaseNotify
+    public class Info 
     {
         private bool shouldStop;
         private float lon;
@@ -34,7 +34,7 @@ namespace FlightSimulator.Model
             set
             {
                 lon = value;
-                NotifyPropertyChanged("Lon");
+                
             }
         }
 
@@ -44,7 +44,7 @@ namespace FlightSimulator.Model
             set
             {
                 lat = value;
-                NotifyPropertyChanged("Lat");
+                
             }
         }
 
@@ -97,15 +97,14 @@ namespace FlightSimulator.Model
                 }
 
                 splitStr = inputLine.Split(',');
-                Lon = float.Parse(splitStr[0]);
-                Lat = float.Parse(splitStr[1]);
-                Console.WriteLine("Lon {0} Lat {1}", Lon, Lat);
+                FlightBoardViewModel.Instance.Lon = float.Parse(splitStr[0]);
+                FlightBoardViewModel.Instance.Lat = float.Parse(splitStr[1]);
+              //  Console.WriteLine("lon " + FlightBoardViewModel.Instance.Lon + "lat " + FlightBoardViewModel.Instance.Lat);
                 //Thread.Sleep(250);
             }
 
             clientSocket.Close();
             server.Stop();
-
         }
     }
 
