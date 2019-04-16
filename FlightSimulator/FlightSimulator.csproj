@@ -109,7 +109,6 @@
     <Compile Include="ViewModels\AutoVM.cs" />
     <Compile Include="ViewModels\BaseNotify.cs" />
     <Compile Include="ViewModels\FlightBoardViewModel.cs" />
-    <Compile Include="ViewModels\InfoVM.cs" />
     <Compile Include="ViewModels\JoystickVM.cs" />
     <Compile Include="ViewModels\PopupVM.cs" />
     <Compile Include="ViewModels\Windows\SettingsWindowViewModel.cs" />

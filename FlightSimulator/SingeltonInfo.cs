@@ -7,6 +7,7 @@ using FlightSimulator.Model;
 
 namespace FlightSimulator
 {
+    // the info should be singelton- only one connection.
     public class SingeltonInfo
     {
         private static Info m_Instance = null;

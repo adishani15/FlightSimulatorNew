@@ -10,7 +10,9 @@ namespace FlightSimulator.ViewModels
 {
     class PopupVM
     {
+        // ICommand for the popup of the settings.
         private ICommand _settingsCommand;
+        // ICommand for the disconnect button.
         private ICommand closeCommand;
         private bool alredyConnect;
 
@@ -23,7 +25,6 @@ namespace FlightSimulator.ViewModels
         {
             get
             {
-                Console.WriteLine("_----------------------");
                 return _settingsCommand ?? (_settingsCommand =
                 new CommandHandler(() => OnClick()));
             }
@@ -47,8 +48,11 @@ namespace FlightSimulator.ViewModels
         private void OnClick()
         {
             PopupSettings p = new PopupSettings();
+            // show the popup window
              p.ShowDialog();
         }
+        
+        // ICommand for the connect to listen to the flight
         private ICommand _listenCommand;
         public ICommand ListenCommand
         {
@@ -64,7 +68,7 @@ namespace FlightSimulator.ViewModels
         }
         private void ToConnect()
         {
-
+            // only if not connected- connect.
             if (!this.alredyConnect)
             {
                 this.open();
@@ -77,12 +81,14 @@ namespace FlightSimulator.ViewModels
 
         }
 
+        // open the connection- the Info and the command
         private void open()
         {
             SingeltonInfo.Instance.openServer();
             SingeltonCommand.Instance.connectServer();
         }
 
+        // close the connection.
         private void close()
         {
             if (SingeltonCommand.Instance.GetDidConnect())
