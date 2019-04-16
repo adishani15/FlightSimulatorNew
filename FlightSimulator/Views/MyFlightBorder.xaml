@@ -12,19 +12,25 @@
          <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height= "Auto" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button Name="Connect" Content="Connect" 
-                FontWeight="ExtraBold" Width="100" Margin="7" HorizontalAlignment="Right"
+                FontWeight="Bold" Width="100" Margin="7" HorizontalAlignment="Right"
                  Command="{Binding ListenCommand}"
-                Grid.Row="0" Grid.Column="0"/>
+                Grid.Row="0" Grid.Column="1"/>
         <Button Name="Settings" Content="Settings"
                  Command="{Binding SettingsCommand}"
-                FontWeight="ExtraBold" Width="100" Margin="7" HorizontalAlignment="Left"
-                Grid.Row="0" Grid.Column="1"/>
-        <local:FlightBoard Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1"></local:FlightBoard>
+                FontWeight="Bold" Width="100" Margin="7" HorizontalAlignment="Right"
+                Grid.Row="0" Grid.Column="2"/>
+        <Button Name="Disconnect" Content="Disconnect"
+                 Command="{Binding SettingsCommand}"
+                FontWeight="ExtraBold"  Width="80" Margin="5" HorizontalAlignment="Right"
+                Grid.Row="0" Grid.Column="0" Background="IndianRed"/>
+        <local:FlightBoard Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1"></local:FlightBoard>
+        
     </Grid>
 </UserControl>
