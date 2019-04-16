@@ -111,11 +111,13 @@ namespace FlightSimulator.Views
         private double _prevAileron, _prevElevator;
         private double canvasWidth, canvasHeight;
         private readonly Storyboard centerKnob;
+        private VirtualJoystickEventArgs joyjoy;
 
         public Joystick()
         {
             InitializeComponent();
             this.DataContext = new JoystickVM();
+            this.joyjoy = new VirtualJoystickEventArgs();
 
             Knob.MouseLeftButtonDown += Knob_MouseLeftButtonDown;
             Knob.MouseLeftButtonUp += Knob_MouseLeftButtonUp;
@@ -158,7 +160,12 @@ namespace FlightSimulator.Views
 
             if (Moved == null ||
                 (!(Math.Abs(_prevAileron - Aileron) > AileronStep) && !(Math.Abs(_prevElevator - Elevator) > ElevatorStep)))
+            {
+                this.joyjoy.Aileron = Aileron / 124;
+                this.joyjoy.Elevator = Elevator / 124;
                 return;
+            }
+               
 
             Moved?.Invoke(this, new VirtualJoystickEventArgs { Aileron = Aileron, Elevator = Elevator });
             _prevAileron = Aileron;

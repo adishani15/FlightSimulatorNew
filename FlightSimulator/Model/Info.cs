@@ -18,6 +18,7 @@ namespace FlightSimulator.Model
         private bool shouldStop;
         private float lon;
         private float lat;
+        private TcpClient clientSocket;
 
         public Info()
         {
@@ -70,7 +71,7 @@ namespace FlightSimulator.Model
             
 
             server.Start();
-            TcpClient clientSocket = server.AcceptTcpClient();
+            this.clientSocket = server.AcceptTcpClient();
 
             Thread thread = new Thread(() => listenFlight(server,clientSocket));
             thread.Start();
@@ -79,7 +80,6 @@ namespace FlightSimulator.Model
         private void listenFlight(TcpListener server, TcpClient clientSocket)
         {
            
-            /*TcpClient clientSocket = server.AcceptTcpClient();*/
             NetworkStream stream = clientSocket.GetStream();
             BinaryReader reader = new BinaryReader(stream);
             DateTime start = DateTime.UtcNow;
@@ -138,8 +138,14 @@ namespace FlightSimulator.Model
         //}
 
 
+    public void close()
+        {
+            this.clientSocket.Close();
+        }
+
     }
 
+   
 }
 
 
