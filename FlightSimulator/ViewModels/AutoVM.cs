@@ -102,6 +102,8 @@ namespace FlightSimulator.ViewModels
             this.Parser(this.data);
              if(SingeltonCommand.Instance.GetDidConnect()){
                 SingeltonCommand.Instance.setFromAuto(this.myCommands);
+                CommentFromUser = "";
+
             }
             
              

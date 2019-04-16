@@ -9,7 +9,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using FlightSimulator.ViewModels;
+
 
 
 namespace FlightSimulator.Model
@@ -19,6 +19,12 @@ namespace FlightSimulator.Model
         private bool shouldStop;
         private float lon;
         private float lat;
+        TcpListener server;
+        TcpClient clientSocket;
+        Thread thread;
+
+
+
 
         public Info()
         {
@@ -68,13 +74,13 @@ namespace FlightSimulator.Model
         {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(Properties.Settings.Default.FlightServerIP),
                                                   Properties.Settings.Default.FlightInfoPort);
-            TcpListener server = new TcpListener(ep);
+            this.server = new TcpListener(ep);
             
 
             server.Start();
-            TcpClient clientSocket = server.AcceptTcpClient();
+            this.clientSocket = server.AcceptTcpClient();
 
-            Thread thread = new Thread(() => listenFlight(server,clientSocket));
+            this.thread = new Thread(() => listenFlight(server,clientSocket));
             thread.Start();
         }
 
@@ -103,8 +109,15 @@ namespace FlightSimulator.Model
                 //Thread.Sleep(250);
             }
 
-            clientSocket.Close();
-            server.Stop();
+           
+        }
+        public void close()
+        {
+            this.shouldStop = true;
+            this.thread.Abort();
+            this.clientSocket.Close();
+            this.server.Stop();
+
         }
     }
 

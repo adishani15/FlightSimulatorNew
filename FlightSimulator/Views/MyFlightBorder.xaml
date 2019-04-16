@@ -27,7 +27,7 @@
                 FontWeight="Bold" Width="100" Margin="7" HorizontalAlignment="Right"
                 Grid.Row="0" Grid.Column="2"/>
         <Button Name="Disconnect" Content="Disconnect"
-                 Command="{Binding SettingsCommand}"
+                 Command="{Binding DisConnectClick}"
                 FontWeight="ExtraBold"  Width="80" Margin="5" HorizontalAlignment="Right"
                 Grid.Row="0" Grid.Column="0" Background="IndianRed"/>
         <local:FlightBoard Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1"></local:FlightBoard>

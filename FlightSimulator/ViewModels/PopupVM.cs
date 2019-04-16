@@ -11,6 +11,7 @@ namespace FlightSimulator.ViewModels
     class PopupVM
     {
         private ICommand _settingsCommand;
+        private ICommand closeCommand;
         private bool alredyConnect;
 
         public PopupVM()
@@ -31,6 +32,18 @@ namespace FlightSimulator.ViewModels
 
             }
         }
+
+        public ICommand DisConnectClick
+        {
+            get {
+               
+                 return closeCommand ?? (closeCommand =
+                new CommandHandler(() => close()));
+
+            }
+        }
+            
+
         private void OnClick()
         {
             PopupSettings p = new PopupSettings();
@@ -54,18 +67,29 @@ namespace FlightSimulator.ViewModels
 
             if (!this.alredyConnect)
             {
-                SingeltonInfo.Instance.openServer();
-                SingeltonCommand.Instance.connectServer();
+                this.open();
                 this.alredyConnect = true;
             }
             else
             {
-
-                SingeltonInfo.Instance.openServer();
-                SingeltonCommand.Instance.connectServer();
-                this.alredyConnect = true;
+                return;
             }
 
+        }
+
+        private void open()
+        {
+            SingeltonInfo.Instance.openServer();
+            SingeltonCommand.Instance.connectServer();
+        }
+
+        private void close()
+        {
+            if (SingeltonCommand.Instance.GetDidConnect())
+            {
+                SingeltonCommand.Instance.close();
+                SingeltonInfo.Instance.close();
+            }
         }
     }
 
