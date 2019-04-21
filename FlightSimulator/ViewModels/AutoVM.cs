@@ -10,6 +10,7 @@ namespace FlightSimulator.ViewModels
 {
     class AutoVM:BaseNotify
     {
+        
         private List<List<string>> myCommands = new List<List<string>>();
         
         private ICommand _connectCommand;
@@ -17,16 +18,14 @@ namespace FlightSimulator.ViewModels
         
         private int count = 0;
         private string data = "";
-       
-        
-        private String commantFromUser = "";
-       
 
+        private String commantFromUser = "";
         private String color;
         public String ColorCange
         {
             get
             {
+                // if empty- change background to white
                 if (count == 0)
                 {
                     color = "White";
@@ -38,6 +37,7 @@ namespace FlightSimulator.ViewModels
                     count++;
 
                 }
+                // else- change background to pink
                 else
                 {
                     color = "Pink";
@@ -46,11 +46,6 @@ namespace FlightSimulator.ViewModels
             }
             
         }
-
-
-
-
-
 
         public ICommand ClearCommand
 
@@ -105,11 +100,7 @@ namespace FlightSimulator.ViewModels
                 CommentFromUser = "";
 
             }
-            
-             
-
-
-        
+    
         }
 
         public ICommand ConnectCommand
@@ -125,7 +116,7 @@ namespace FlightSimulator.ViewModels
         }
 
 
-
+        // parse the script from the user
         private void Parser(string s)
         {
             int listIndex = this.myCommands.Count;
@@ -176,6 +167,4 @@ namespace FlightSimulator.ViewModels
             }
         } 
     }
-
-   
 }

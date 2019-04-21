@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightSimulator
 {
+    // the command should be singelton- only one connection.
     public class SingeltonCommand
     {
         private static Command m_Instance = null;
