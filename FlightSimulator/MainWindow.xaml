@@ -11,17 +11,17 @@
         
         Title="MainWindow" Height="540" Width="1100" MinHeight="200" MinWidth="400">
     <Viewbox>
-    <Grid>
-            
-            <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Controls:MyFlightBorder Grid.Column="0" Margin="10">
-        </Controls:MyFlightBorder>
-        <Controls:ControlPanel Grid.Column="1">
-        </Controls:ControlPanel>
+        <Grid>
 
-    </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Controls:MyFlightBorder Grid.Column="0" Margin="10">
+            </Controls:MyFlightBorder>
+            <Controls:ControlPanel Grid.Column="1">
+            </Controls:ControlPanel>
+
+        </Grid>
     </Viewbox>
 </Window>

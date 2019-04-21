@@ -14,20 +14,21 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using  FlightSimulator.ViewModels;
+using FlightSimulator.ViewModels;
 
 namespace FlightSimulator.Views
 {
-    
+
     /// <summary>
     /// Interaction logic for Joystick.xaml
     /// </summary>
     public partial class Joystick : UserControl
+
     {
-        private JoystickVM VM;
+      
         /// <summary>Current Aileron</summary>
         public static readonly DependencyProperty AileronProperty =
-            DependencyProperty.Register("Aileron", typeof(double), typeof(Joystick),null);
+            DependencyProperty.Register("Aileron", typeof(double), typeof(Joystick), null);
 
         /// <summary>Current Elevator</summary>
         public static readonly DependencyProperty ElevatorProperty =
@@ -111,13 +112,15 @@ namespace FlightSimulator.Views
         private double _prevAileron, _prevElevator;
         private double canvasWidth, canvasHeight;
         private readonly Storyboard centerKnob;
-        private VirtualJoystickEventArgs joyjoy;
+        //private VirtualJoystickEventArgs joystick;
+        private JoystickVM joystick;
 
+
+        //public Joystick(Command com)
         public Joystick()
         {
             InitializeComponent();
-            this.DataContext = new JoystickVM();
-            this.joyjoy = new VirtualJoystickEventArgs();
+            
 
             Knob.MouseLeftButtonDown += Knob_MouseLeftButtonDown;
             Knob.MouseLeftButtonUp += Knob_MouseLeftButtonUp;
@@ -151,9 +154,14 @@ namespace FlightSimulator.Views
 
             double distance = Math.Round(Math.Sqrt(deltaPos.X * deltaPos.X + deltaPos.Y * deltaPos.Y));
             if (distance >= canvasWidth / 2 || distance >= canvasHeight / 2)
+            {
+                //Aileron = Aileron / 124;
+                //Elevator = Elevator / 124;
                 return;
-            Aileron = -deltaPos.Y;
-            Elevator = deltaPos.X;
+            }
+
+            Aileron = -deltaPos.X / 124;
+            Elevator = deltaPos.Y / 124;
 
             knobPosition.X = deltaPos.X;
             knobPosition.Y = deltaPos.Y;
@@ -161,22 +169,17 @@ namespace FlightSimulator.Views
             if (Moved == null ||
                 (!(Math.Abs(_prevAileron - Aileron) > AileronStep) && !(Math.Abs(_prevElevator - Elevator) > ElevatorStep)))
             {
-                this.joyjoy.Aileron = Aileron / 124;
-                this.joyjoy.Elevator = Elevator / 124;
+                //this.joystick.Aileron = Aileron / 124;
+                //this.joystick.Elevator = Elevator / 124;
                 return;
             }
-               
+
 
             Moved?.Invoke(this, new VirtualJoystickEventArgs { Aileron = Aileron, Elevator = Elevator });
             _prevAileron = Aileron;
             _prevElevator = Elevator;
 
-            Console.WriteLine(Aileron);
-            Console.WriteLine(Elevator);
-            Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-
         }
-
 
         private void Knob_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -184,12 +187,14 @@ namespace FlightSimulator.Views
             centerKnob.Begin();
         }
 
+
         private void centerKnob_Completed(object sender, EventArgs e)
         {
             Aileron = Elevator = _prevAileron = _prevElevator = 0;
             Released?.Invoke(this);
         }
 
-      
+
     }
 }
+
