@@ -15,7 +15,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FlightSimulator.Model;
 using FlightSimulator.ViewModels;
-using FlightSimulator.ViewModels;
 using Microsoft.Research.DynamicDataDisplay;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
 
@@ -26,7 +25,7 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class FlightBoard : UserControl
     {
-        FlightBoardViewModel vm;
+       
         ObservableDataSource<Point> planeLocations = null;
         public FlightBoard()
         {

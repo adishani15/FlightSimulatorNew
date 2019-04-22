@@ -8,6 +8,7 @@ using FlightSimulator.Model;
 
 namespace FlightSimulator.ViewModels
 {
+    /*this class is the view model of the auto window*/
     class AutoVM:BaseNotify
     {
         
@@ -21,6 +22,10 @@ namespace FlightSimulator.ViewModels
 
         private String commantFromUser = "";
         private String color;
+        /**
+         * this property is connect to the backround of the textbox
+         */ 
+   
         public String ColorCange
         {
             get
@@ -47,6 +52,9 @@ namespace FlightSimulator.ViewModels
             
         }
 
+        /**
+        this property is connect to the clear command and it call to a function that will clear the text box
+             */
         public ICommand ClearCommand
 
         { 
@@ -60,13 +68,16 @@ namespace FlightSimulator.ViewModels
             
         
         }
+        /**
+        this function is working when someone clicked on the clear coomand its clear the teztbox from the text
+             */
         private void OnClick()
         {
             CommentFromUser = "";
           
         }
 
-        
+        /*this property is connect to the text in the textbox*/
         public String CommentFromUser
         {
             get
@@ -90,7 +101,8 @@ namespace FlightSimulator.ViewModels
 
        
 
-        
+        /*this property is connect to the ok button when the client clik this button this class will call to the modle
+         and will pass him the data to the server*/
         private void OkClick()
         {
 
@@ -103,6 +115,7 @@ namespace FlightSimulator.ViewModels
     
         }
 
+        /*the property that bind to ok button and play the okClick method */
         public ICommand ConnectCommand
         {
             get

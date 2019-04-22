@@ -7,6 +7,8 @@ using System.Windows;
 
 namespace FlightSimulator.ViewModels
 {
+    /*this class is the view model of the joystick
+     and evry property do the same - it pass the data he gets from the view and pass it to the server*/
     public class JoystickVM
     {
         private double aileron;
@@ -17,6 +19,7 @@ namespace FlightSimulator.ViewModels
             aileron = 0;
             elevator = 0;
         }
+        /*this is the property of the aileron */
         public double Aileron
         {
             get
@@ -44,6 +47,7 @@ namespace FlightSimulator.ViewModels
 
             }
         }
+        /*this is the property of the elevator */
         public double Elevator
         {
 
@@ -73,7 +77,7 @@ namespace FlightSimulator.ViewModels
             }
         }
 
-
+        /*this is the property of the rudder */
         public string Rudder
         {
             
@@ -93,6 +97,7 @@ namespace FlightSimulator.ViewModels
                 
             }
         }
+        /*this is the property of the throttle */
         public string Throttle
         {
            

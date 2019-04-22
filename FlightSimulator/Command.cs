@@ -11,7 +11,7 @@ using System.Net;
 using System.IO;
 
 namespace FlightSimulator
-{
+{   /*this class is cocnect to a server and pass the data to the server*/
     public class Command {
 
         public Dictionary<string, double> pathRead = new Dictionary<string, double>();
@@ -21,11 +21,13 @@ namespace FlightSimulator
         TcpListener server;
         private bool didConnect;
 
+        /*the constractor will set the map of all the path we need to know to connect with the flight simolator*/
         public Command()
         {
             this.SetTheMap();
             didConnect = false;
         }
+        /*here we really do the connection to the server*/
         public void connectServer()
         {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(Properties.Settings.Default.FlightServerIP),
@@ -52,7 +54,8 @@ namespace FlightSimulator
         }
 
         
-
+        /*this function is working from the view modle and gets her param ftom there and do a work on the 
+         * data and pass it to the simolator*/
         public void setInfo(List<string> path)
         {
             string goTo = "set ";
@@ -66,9 +69,10 @@ namespace FlightSimulator
 
         }
 
+        /*this function works from the auto view model this is an anather function because we need todo it on anather thread*/
         public void setFromAuto(List<List<string>> s)
         {
-
+            //the thread
             Thread thread = new Thread(() =>
             {
                 if (s.Count != 0)
@@ -108,11 +112,13 @@ namespace FlightSimulator
             return r;
         }
 
+        /*check if was a conection if does not dont call to the write functions*/
         public bool GetDidConnect()
         {
             return this.didConnect;
         }
         
+        /*close the connection to the server*/
         public void close()
         {
             this.client.Close();

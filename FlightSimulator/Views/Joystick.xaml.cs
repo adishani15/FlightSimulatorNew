@@ -112,8 +112,7 @@ namespace FlightSimulator.Views
         private double _prevAileron, _prevElevator;
         private double canvasWidth, canvasHeight;
         private readonly Storyboard centerKnob;
-        //private VirtualJoystickEventArgs joystick;
-        private JoystickVM joystick;
+        
 
 
         //public Joystick(Command com)
